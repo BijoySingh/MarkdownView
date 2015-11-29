@@ -15,3 +15,7 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+-keep public class com.bijoykochar.markdownview.** { public *;}
+-keep public class com.bijoykochar.markdownview.html.** { public *;}
+-keep public class com.bijoykochar.markdownview.markdown.** { public *;}
+-keep public class com.bijoykochar.markdownview.views.** { public *;}

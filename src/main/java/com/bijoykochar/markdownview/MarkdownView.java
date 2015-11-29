@@ -1,4 +1,4 @@
-package com.bijoykochar.markdownview.views;
+package com.bijoykochar.markdownview;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -52,6 +52,6 @@ public class MarkdownView extends WebView {
         }
 
         String html = parser.convertToHtml(text);
-        loadDataWithBaseURL(null, html, "text/html", "utf-8", null);
+        loadData(html, "text/html", "utf-8");
     }
 }

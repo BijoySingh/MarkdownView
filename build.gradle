@@ -15,12 +15,14 @@ android {
         versionCode 1
         versionName version
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
 }
 
 def siteUrl = 'https://github.com/BijoySingh/MarkdownView'      // Homepage URL of the library
@@ -45,6 +47,7 @@ install {
                         url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
                     }
                 }
+
                 developers {
                     developer {
                         id 'BijoySingh'

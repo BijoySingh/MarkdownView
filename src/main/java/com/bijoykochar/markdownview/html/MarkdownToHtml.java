@@ -47,8 +47,8 @@ public class MarkdownToHtml {
     /**
      * Recursively converts the markdown items into HTML
      *
-     * @param markdownItems
-     * @return
+     * @param markdownItems tge list of markdown items
+     * @return the html
      */
     private String convertMarkdownItems(List<MarkdownItem> markdownItems) {
         String response = "";
