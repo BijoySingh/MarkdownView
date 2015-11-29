@@ -27,14 +27,31 @@ public class MarkdownCSSConfig {
     /**
      * Modifies the configuration
      *
-     * @param newRule The rule to change
-     * @return
+     * @param rule     the markdown rule
+     * @param cssTag   the CSS style tag
+     * @param cssValue the CSS style value
+     * @return the instance
      */
     public MarkdownCSSConfig modify(Markdown.Type rule, String cssTag, String cssValue) {
         if (configs.containsKey(rule)) {
             Map<String, String> configuration = configs.get(rule);
             configuration.put(cssTag, cssValue);
             configs.put(rule, configuration);
+        }
+        return this;
+    }
+
+
+    /**
+     * Modifies the configuration
+     *
+     * @param rule    the rule
+     * @param mapping the new mappings
+     * @return the instance
+     */
+    public MarkdownCSSConfig modify(Markdown.Type rule, Map<String, String> mapping) {
+        if (configs.containsKey(rule)) {
+            configs.get(rule).putAll(mapping);
         }
         return this;
     }

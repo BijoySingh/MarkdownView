@@ -28,7 +28,7 @@ public class MarkdownHtmlConfig {
      * Modifies the configuration
      *
      * @param newRule The rule to change
-     * @return
+     * @return the instance
      */
     public MarkdownHtmlConfig modify(MarkdownHtmlRule newRule) {
         configs.put(newRule.markType, newRule);

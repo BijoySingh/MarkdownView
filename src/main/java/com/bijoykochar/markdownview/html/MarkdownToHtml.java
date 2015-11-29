@@ -91,17 +91,27 @@ public class MarkdownToHtml {
         Map<Markdown.Type, Map<String, String>> cssConfigurations = cssConfig.getConfigs();
         Map<Markdown.Type, MarkdownHtmlRule> htmlConfigurations = htmlConfig.getConfigs();
 
-        String css = "<style>";
+        String css = "<head>\n" +
+                "<meta charset=\"utf-8\">\n" +
+                "<style type=\"text/css\">\n";
         for (Map.Entry<Markdown.Type, Map<String, String>> entry : cssConfigurations.entrySet()) {
-            css += htmlConfigurations.get(entry.getKey()).htmlTag + " {";
-
-            for (Map.Entry<String, String> cssEntry : entry.getValue().entrySet()) {
-                css += cssEntry.getKey() + ": " + cssEntry.getValue() + ";\n";
+            if (entry.getValue().isEmpty()) {
+                continue;
             }
 
-            css += "}\n";
+            if (entry.getKey().equals(Markdown.Type.NONE)) {
+                css += "* {";
+            } else {
+                css += htmlConfigurations.get(entry.getKey()).htmlTag + " {";
+            }
+
+            for (Map.Entry<String, String> cssEntry : entry.getValue().entrySet()) {
+                css += "\n" + cssEntry.getKey() + " : " + cssEntry.getValue() + ";";
+            }
+
+            css += "\n}\n";
         }
-        css += "</style>";
+        css += "</style></head>\n";
         return css;
     }
 
